@@ -116,9 +116,14 @@ header {
   flex: 1;
   min-height: 0;
 }
+/* The rail sizes to its buttons, so a classic (non-overlay) scrollbar widens
+   the rail instead of squeezing the buttons. The gutter is reserved up front
+   to avoid a layout jump when the rail starts or stops overflowing. */
 nav {
+  overflow-x: hidden;
   overflow-y: auto;
-  width: 62px;
+  scrollbar-width: thin;
+  scrollbar-gutter: stable;
   flex-shrink: 0;
   background: #20252c;
   border-right: 1px solid #343b44;
@@ -126,6 +131,11 @@ nav {
   flex-direction: column;
   gap: 6px;
   padding: 14px 8px;
+}
+nav > button,
+nav > .tool-group {
+  width: 45px;
+  flex-shrink: 0;
 }
 nav button {
   height: 46px;
